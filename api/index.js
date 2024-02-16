@@ -1,5 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
+import { connectToDatabase } from "./config/connectToMongo.js"
 
 dotenv.config()
 
@@ -14,5 +15,6 @@ app.get("/", (req, res) => {
 app.get("/api/v1/auth")
 
 app.listen(port, () => {
+    connectToDatabase()
     console.log(`server is listening on port ${port}`)
 })
