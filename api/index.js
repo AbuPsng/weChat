@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import { connectToDatabase } from "./config/connectToMongo.js"
 import authRouter from "./routes/authRouter.js"
 import messageRouter from "./routes/messageRouter.js"
+import cookieParser from "cookie-parser"
 
 dotenv.config()
 
@@ -12,6 +13,7 @@ const port = process.env.PORT
 //** middleware */
 
 app.use(express.json())
+app.use(cookieParser())
 
 
 //** Routes */

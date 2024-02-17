@@ -67,6 +67,8 @@ export const signIn = async (req, res) => {
 
         if (!isPasswordCorrect) return res.status(400).json({ error: "Wrong password" })
 
+        generateToken(user._id.toString(), res)
+
         res.status(201).json({
             _id: user._id,
             fullName: user.fullName,

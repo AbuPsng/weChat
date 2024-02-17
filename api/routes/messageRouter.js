@@ -1,12 +1,10 @@
 import express from "express"
+import { sendMessage } from "../controllers/messageController.js"
+import { isLogin } from "../utils/utils.js"
 
 const messageRouter = express.Router()
 
-messageRouter.post("/sign_up", signUp)
-
-messageRouter.post("/sign_in", signIn)
-
-messageRouter.get("/sign_out", signOut)
+messageRouter.post("/send/:id", isLogin, sendMessage)
 
 
 export default messageRouter

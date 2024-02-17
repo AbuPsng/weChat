@@ -1,5 +1,6 @@
 import bcryptjs from "bcryptjs"
 import jwt from "jsonwebtoken"
+import { userModel } from "../models/userModel.js";
 
 export const hashPassword = async (password) => {
     const salt = await bcryptjs.genSalt(10)
@@ -24,4 +25,27 @@ export const generateToken = (userId, res) => {
         sameSite: "strict",
         secure: process.env.NODE_ENV !== "development"
     })
+}
+
+export const isLogin = async (req, res, next) => {
+    try {
+        const token = req.cookies["weChat-token"]
+
+        if (!token) return res.status(401).json({ error: "Unauthorized - No Token Provided" })
+
+        const decode = jwt.verify(token, process.env.JWT_SECRET_TOKEN)
+
+        if (!decode) return res.status(401).json({ error: "Unauthorized - Invalid Token" })
+
+        const user = await userModel.findById(decode.userId).select("-password")
+
+        if (!user) return res.status(401).json({ error: "User not found" })
+
+        req.user = user
+
+        next()
+
+    } catch (error) {
+        console.log("Error in utils :is login", error.message)
+    }
 }
