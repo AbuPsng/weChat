@@ -1,9 +1,12 @@
 import express from "express"
 import dotenv from "dotenv"
-import { connectToDatabase } from "./config/connectToMongo.js"
+import cookieParser from "cookie-parser"
+
 import authRouter from "./routes/authRouter.js"
 import messageRouter from "./routes/messageRouter.js"
-import cookieParser from "cookie-parser"
+import userRouter from "./routes/userRouter.js"
+
+import { connectToDatabase } from "./config/connectToMongo.js"
 
 dotenv.config()
 
@@ -20,6 +23,7 @@ app.use(cookieParser())
 
 app.use("/api/v1/auth", authRouter)
 app.use("/api/v1/messages", messageRouter)
+app.use("/api/v1/users", userRouter)
 
 app.listen(port, () => {
     connectToDatabase()

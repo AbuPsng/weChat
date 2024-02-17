@@ -76,7 +76,7 @@ export const signIn = async (req, res) => {
             profilePicture: user.profilePicture
         })
     } catch (error) {
-        console.log("error in singUp controller", error.message)
+        console.log("error in signIn controller", error.message)
         res.status(500).json({ error: error.message })
     }
 
@@ -90,7 +90,7 @@ export const signOut = async (req, res) => {
 
         res.status(200).json({ message: "Logged Out successfully" })
     } catch (error) {
-        console.log("error in singUp controller", error.message)
+        console.log("error in signOut controller", error.message)
         res.status(500).json({ error: error.message })
     }
 }

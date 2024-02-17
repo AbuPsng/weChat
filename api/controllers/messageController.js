@@ -37,3 +37,28 @@ export const sendMessage = async (req, res) => {
         res.status(500).json({ error: error.message })
     }
 }
+
+export const getMessage = async (req, res) => {
+    try {
+
+        const friendId = req.params.id
+
+        const senderId = req.user._id
+
+        const conversation = await conversationModel.findOne({
+            participants: { $all: [senderId, friendId] }
+        }).populate("messages")
+
+        if (!conversation) {
+            return res.status(200).json([])
+        }
+
+        const messages = conversation.messages
+
+        res.status(201).json(messages)
+
+    } catch (error) {
+        console.log("error in message controller", error)
+        res.status(500).json({ error: error.message })
+    }
+}
