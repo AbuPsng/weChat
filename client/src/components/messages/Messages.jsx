@@ -1,8 +1,8 @@
 import Message from './Message'
 
-const messages = () => {
+const Messages = () => {
     return (
-        <div className='px-4 flex overflow-auto'>
+        <div className='px-4 flex-1 overflow-auto'>
             <Message />
             <Message />
             <Message />
@@ -13,4 +13,4 @@ const messages = () => {
     )
 }
 
-export default messages
+export default Messages

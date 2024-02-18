@@ -1,5 +1,18 @@
+import { useState } from "react"
+import MessageInput from "./MessageInput"
+import Messages from "./Messages"
+import NoChatSelected from "./NoChatSelected"
 
 const MessageContainer = () => {
+
+    const [noChatSelected, setNoChatSelected] = useState(true)
+
+    if (noChatSelected) {
+        return (
+            <NoChatSelected />
+        )
+    }
+
     return (
         <div className="md:min-w-[450px] flex flex-col">
             <>
@@ -10,8 +23,9 @@ const MessageContainer = () => {
                     <span className="text-gray-900 font-bold">
                         John Doe
                     </span>
-
                 </div>
+                <Messages />
+                <MessageInput />
             </>
 
         </div>

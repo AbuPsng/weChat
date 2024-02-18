@@ -9,3 +9,21 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+/*** Dark mode looking scroll bar  */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #555;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #242434;
+}
