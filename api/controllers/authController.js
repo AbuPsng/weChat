@@ -82,6 +82,21 @@ export const signIn = async (req, res) => {
 
 }
 
+export const keepSignIn = async (req, res) => {
+    try {
+        const userId = req.user._id
+
+        if (!userId) res.status(200).json({ error: "Please logged in" })
+
+        const user = await userModel.findById(userId).select("_id fullName username gender profilePicture")
+
+        res.status(201).json(user)
+    } catch (error) {
+        console.log("Error in keepSignIn controller")
+        console.log(error.message)
+    }
+}
+
 export const signOut = async (req, res) => {
     try {
         res.cookie("weChat-token", "", {

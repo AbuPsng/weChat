@@ -1,6 +1,7 @@
 import express from "express"
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
+import cors from "cors"
 
 import authRouter from "./routes/authRouter.js"
 import messageRouter from "./routes/messageRouter.js"
@@ -16,6 +17,10 @@ const port = process.env.PORT
 //** middleware */
 
 app.use(express.json())
+app.use(cors({
+    credentials: true,
+    origin: "http://localhost:5173"
+}))
 app.use(cookieParser())
 
 

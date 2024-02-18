@@ -20,9 +20,9 @@ export const generateToken = (userId, res) => {
     if (!token) return res.status(400).json({ error: "Failed to generate JWT token" })
 
     res.cookie("weChat-token", token, {
-        maxAge: 15 * 24 * 60 * 60 * 1000,
+        // maxAge: 15 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        sameSite: "strict",
+        sameSite: "lax",
         secure: process.env.NODE_ENV !== "development"
     })
 }
