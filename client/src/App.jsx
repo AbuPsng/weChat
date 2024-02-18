@@ -3,7 +3,7 @@ import SignInPage from "./pages/signIn/SignInPage"
 import SignUpPage from "./pages/signUp/SignUpPage"
 import { Routes, Route, Navigate } from "react-router-dom"
 import { Toaster } from "react-hot-toast"
-import { useAuthContext } from "./components/hooks/useAuthContext"
+import { useAuthContext } from "./hooks/useAuthContext"
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
           <Route path="/sign_in" element={authUser.username ? <Navigate to="/" /> : <SignInPage />} />
           <Route path="/sign_up" element={authUser.username ? <Navigate to="/" /> : <SignUpPage />} />
         </Routes>
-        <Toaster />
+        <Toaster position="top-right" />
       </div>
     </>
   )

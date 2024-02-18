@@ -100,7 +100,8 @@ export const keepSignIn = async (req, res) => {
 export const signOut = async (req, res) => {
     try {
         res.cookie("weChat-token", "", {
-            maxAge: 0
+            maxAge: 0,
+            sameSite: "lax"
         })
 
         res.status(200).json({ message: "Logged Out successfully" })

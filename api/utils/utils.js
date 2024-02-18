@@ -14,7 +14,6 @@ export const checkPassword = async (password, encryptedPassword) => {
 }
 
 export const generateToken = (userId, res) => {
-    console.log(userId)
     const token = jwt.sign({ userId }, process.env.JWT_SECRET_TOKEN, { expiresIn: "2d" })
 
     if (!token) return res.status(400).json({ error: "Failed to generate JWT token" })
