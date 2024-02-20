@@ -17,8 +17,6 @@ const port = process.env.PORT
 
 const __dirname = path.resolve()
 
-//** middleware */
-
 app.use(express.json())
 app.use(cors({
     credentials: true,
@@ -26,8 +24,6 @@ app.use(cors({
 }))
 app.use(cookieParser())
 
-
-//** Routes */
 
 app.use("/api/v1/auth", authRouter)
 app.use("/api/v1/users", userRouter)

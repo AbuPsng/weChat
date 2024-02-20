@@ -9,7 +9,7 @@ const useGetMessages = () => {
     const handleGetMessages = async () => {
         setLoading(true)
         try {
-            const res = await fetch(`https://wechat-jxju.onrender.com//api/v1/messages/${selectedConversation._id}`, {
+            const res = await fetch(`https://wechat-jxju.onrender.com/api/v1/messages/${selectedConversation._id}`, {
                 credentials: "include"
             })
 

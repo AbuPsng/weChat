@@ -19,7 +19,7 @@ const useSignUp = () => {
         setLoading(true)
         try {
 
-            const res = await fetch("https://wechat-jxju.onrender.com//api/v1/auth/sign_up", {
+            const res = await fetch("https://wechat-jxju.onrender.com/api/v1/auth/sign_up", {
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },

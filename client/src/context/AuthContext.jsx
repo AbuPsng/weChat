@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
 
     const handleGetUserData = async () => {
         try {
-            const res = await fetch("https://wechat-jxju.onrender.com//api/v1/auth/is_sign_in", {
+            const res = await fetch("https://wechat-jxju.onrender.com/api/v1/auth/is_sign_in", {
                 credentials: "include",
             })
             const data = await res.json()
