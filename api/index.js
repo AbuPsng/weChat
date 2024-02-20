@@ -29,9 +29,9 @@ app.use(cookieParser())
 
 //** Routes */
 
-app.use("api/v1/auth", authRouter)
-app.use("api/v1/users", userRouter)
-app.use("api/v1/messages", messageRouter)
+app.use("/api/v1/auth", authRouter)
+app.use("/api/v1/users", userRouter)
+app.use("/api/v1/messages", messageRouter)
 
 app.use(express.static(path.join(__dirname, "/client/dist")))
 
