@@ -8,10 +8,10 @@ import messageRouter from "./routes/messageRouter.js"
 import userRouter from "./routes/userRouter.js"
 
 import { connectToDatabase } from "./config/connectToMongo.js"
+import { app, server } from "./socket/socket.js"
 
 dotenv.config()
 
-const app = express()
 const port = process.env.PORT
 
 //** middleware */
@@ -30,7 +30,7 @@ app.use("/api/v1/auth", authRouter)
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/messages", messageRouter)
 
-app.listen(port, () => {
+server.listen(port, () => {
     connectToDatabase()
     console.log(`server is listening on port ${port}`)
 })
