@@ -85,6 +85,8 @@ export const keepSignIn = async (req, res) => {
     try {
         const userId = req.user._id
 
+        if (!userId) return
+
         if (!userId) res.status(200).json({ error: "Please logged in" })
 
         const user = await userModel.findById(userId).select("_id fullName username gender profilePicture")
