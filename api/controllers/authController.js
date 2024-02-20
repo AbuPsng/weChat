@@ -76,7 +76,7 @@ export const signIn = async (req, res) => {
         })
     } catch (error) {
         console.log("error in signIn controller", error.message)
-        res.status(500).json({ error: error.message })
+        res.status(500).json({ error: error })
     }
 
 }
