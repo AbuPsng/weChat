@@ -10,7 +10,7 @@ const useSendMessage = () => {
     const handleSendMessage = async (message) => {
         setLoading(true)
         try {
-            const res = await fetch(`http://localhost:5000/api/v1/messages/send/${selectedConversation._id}`, {
+            const res = await fetch(`https://wechat-jxju.onrender.com//api/v1/messages/send/${selectedConversation._id}`, {
                 credentials: "include",
                 method: "POST",
                 headers: {

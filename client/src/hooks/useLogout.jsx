@@ -11,7 +11,7 @@ const useLogout = () => {
     const handleLogout = async () => {
         setLoading(true)
         try {
-            await fetch("http://localhost:5000/api/v1/auth/sign_out", {
+            await fetch("https://wechat-jxju.onrender.com//api/v1/auth/sign_out", {
                 credentials: "include"
             })
 

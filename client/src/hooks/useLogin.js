@@ -16,7 +16,7 @@ const useLogin = () => {
         setLoading(true)
 
         try {
-            const res = await fetch("http://localhost:5000/api/v1/auth/sign_in", {
+            const res = await fetch("https://wechat-jxju.onrender.com//api/v1/auth/sign_in", {
                 credentials: "include",
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

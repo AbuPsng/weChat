@@ -8,7 +8,7 @@ const useGetConversation = () => {
     const getConversation = async () => {
         setLoading(true)
         try {
-            const res = await fetch("http://localhost:5000/api/v1/users", {
+            const res = await fetch("https://wechat-jxju.onrender.com//api/v1/users", {
                 credentials: "include"
             })
             const data = await res.json()
